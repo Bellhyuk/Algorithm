@@ -1,3 +1,5 @@
+package practice;
+
 /*
 <Problem> - 더하기 사이클 No.1110
 0보다 크거나 같고, 99보다 작거나 같은 정수가 주어질 때 다음과 같은 연산을 할 수 있다.
@@ -14,24 +16,33 @@ import java.util.Scanner;
 /**
  * My code
  * @author Bellhyuk
- * @date '21.02.03.
-
+ * @date '21.02.04.
+ * @version 2.0
+ * 문자열을 통해 나누고 합하는 것 대신 두자리수로 고정되어있다는 점을 고려하여 %와 /로 작성
  */
 public class Main {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
-		int input = sc.nextInt(), cycle=0;
-		String value = (input<10) ? "0"+input : String.valueOf(input);
-		String newnum=null, tmp = value;//처음 value 값과 별개로 더한 수를 새로 업데이트 해줄 tmp 값이 필요하다.
-		while(!value.equals(newnum)) {
-			if(newnum!=null) tmp = newnum;//null은 비어있는 것이 아니라 할당되지않은 경우로 isEmpty()를 쓰면 NullPointException이 발생한다.
-			String sum1=null;
-			int sum2=0;
-			for(int i=0;i<tmp.length();i++) {
-				if(i!=0) sum1 = tmp.split("")[i];
-				sum2 += Integer.parseInt(tmp.split("")[i]);
-			}
-			newnum = sum1 + sum2;
+		int value = sc.nextInt(), sum=-1, cycle=0, tmp = value;
+		while(value!=sum) {
+			if(cycle!=0) tmp = sum;
+			sum = (tmp%10)*10 + ((tmp/10)+(tmp%10))%10;
+			cycle++;
+		}
+		System.out.println(cycle);
+	}
+}
+/**
+ * Best Shortcoding(메모리와 시간이 작은 것을 중심으로)
+ * @author hyunsu11
+ * or 연산자를 통해 if문을 통합하고 변수를 하나 덜 쓸 수 있는 코드를 구현. 
+ */
+public class Main {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int value = sc.nextInt(), cycle=0, tmp = value;
+		while(value!=tmp||cycle==0) {
+			tmp = (tmp%10)*10 + ((tmp/10)+(tmp%10))%10;
 			cycle++;
 		}
 		System.out.println(cycle);
