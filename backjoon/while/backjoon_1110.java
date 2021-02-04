@@ -21,9 +21,10 @@ public class Main {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		int input = sc.nextInt(), cycle=0;
-		String tmp = (input<10) ? "0"+input : String.valueOf(input);
-		String newnum=null;
-		while(!tmp.equals(newnum)) {
+		String value = (input<10) ? "0"+input : String.valueOf(input);
+		String newnum=null, tmp = value;//처음 value 값과 별개로 더한 수를 새로 업데이트 해줄 tmp 값이 필요하다.
+		while(!value.equals(newnum)) {
+			if(newnum!=null) tmp = newnum;//null은 비어있는 것이 아니라 할당되지않은 경우로 isEmpty()를 쓰면 NullPointException이 발생한다.
 			String sum1=null;
 			int sum2=0;
 			for(int i=0;i<tmp.length();i++) {
