@@ -1,7 +1,8 @@
 # BOJ
 ### 바닥부터 정상까지 올라갑니다
 <p align=center>
-<img src="https://cdn.uc.assets.prezly.com/2619a11f-0441-48af-8784-36dc8e204bcf/-/resize/1200x/-/format/auto/" height=500>
+<img src="https://mblogthumb-phinf.pstatic.net/20160226_279/tmondev_1456467134567Ck0Tw_JPEG/M1I5Zev.jpg?type=w2" height=500><br>
+이미지 출처: reddit.com
 </p>
 
 ## 🚀 1. What
