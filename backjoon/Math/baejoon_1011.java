@@ -31,46 +31,95 @@ x지점에서 y지점을 향해 최소한의 작동 횟수로 이동하려 한�
  * x지점과 y지점 사이의 거리 dist = y-x
  * 계산에 필요한 거리 dist-1
  * 최소 이동을 위해 각 회차당 될수록 많은 거리를 이동
- * 1. 1 2 3 4 5 6 초항1 등차1 등차수열의 합이 dist-1을 넘지 않을 때까지 횟수
- * 2. 0~30의 경우 초과하기 전 3번째까지 건드리나 어떻게든 수가 처리되며 횟수는 최대 횟수가 일정하게 유지되는 것을 확인할 수 있음
- * -> 등차수열의 합으로 나눈 값+1로 구할 수 있다.
- * 
+ *
  * 잘못 알고 있었다.. 도착할때 무조건 1이 아니라 1광년이 될 수 있게 만들어야한다는 거였다니...
+ * 1 - 1           1
+ * 2 - 1 1         2
+ * 3 - 1 1 1       3
+ * 4 - 1 2 1       3
+ * 5 - 1 2 1 1     4
+ * 6 - 1 2 2 1     4
+ * ...
+ * 3부터 같은 횟수가 일정한 규칙에 따라 적용된다.
+ * 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+ * 3 3 4 4 5 5 5 6  6  6  7  7  7  7  8  8  8  8
+ *  2   2    3      3         4           4
+ * 
  * 
  */
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
   public class Main {
   	public static void main(String args[]) {
   	  Scanner sc = new Scanner(System.in);
   	  int test=sc.nextInt();
   	  while(test-->0) {
-  	    int start = sc.nextInt(), end = sc.nextInt();
-  	    long dist= end-start, cnt=1;
-  	    while(true){
-          if(Math.ceil((double)dist/2)<=cnt*(1+cnt)/2){
-              cnt--;
-              break;
-            }
-          cnt++;
+  	    long start = sc.nextInt(), end = sc.nextInt(), cnt=0;
+  	    long dist = end-start;
+        int flag=0;
+        long a = dist-3, b=2;
+  	    if(dist==1) cnt=1;
+  	    else if(dist==2) cnt=2;
+  	    else {
+  	      while(true) {
+  	        if(a>=b) a-=b;
+  	        else {
+  	          cnt = b*2-1;
+  	          break;
+  	        } 
+  	        if(a>b) a-=b;
+  	        else {
+  	          cnt = b*2;
+  	          break;
+  	        }
+  	        b++;
+  	      }
   	    }
-  	    if(dist<=1) cnt=1;
-  	    else if(Math.ceil((double)dist/2)>cnt*(cnt+1)/2) cnt = cnt * 2 + 1;
-  	    else cnt = cnt*2;
   	    System.out.println(cnt);
   	  }
   	}
   }
 /**
  * Best Shortcoding(메모리와 시간이 작은 것을 중심으로)
- * @author thgml111
+ * @author ooop0422
  * 
- * 읽어와야하는 수가 크기때문에 BufferedReader와 StringBuilder 사용
- * 뒤에서부터 각각 더하고 올려주는 식으로 계산하여 sb에 append해줌
- * 그리고 append가 앞에서부터 이뤄지니 reverse를 통해 뒤집어준다.
+ * 거리가 제곱수되는 지점을 기준으로 횟수 값이 증가하는 것을 확인할 수 있다.
+ * 거리 값의 제곱근 j을 기준으로 그 다음 제곱수까지의 범위를 생각하자.
+ * distance = n * n -> 2n-1
+ * 제곱수를 기준으로 distance의 제곱근 수만큼 횟수 반복
+ * distance <= n*(n+1) -> 2n
+ * 그 이후 값은 제곱근 값만큼 회수를 또 반복
+ * -> 2n+1
+ * 이를 통해 계산할 수 있다.
  * 
  */
-/*public class Main {
-	public static void main(String[] args) throws IOException{
+  
+public class Main {
+    public static void main(String[] args) throws IOException{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer st ;
+    StringBuilder sb = new StringBuilder();
+    int T = Integer.parseInt(br.readLine());
 
+    for(int i=0 ; i<T ; i++) {
+        st = new StringTokenizer(br.readLine(), " ");
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+        double distance = y-x;
+
+        double dsqrt = Math.sqrt(distance);
+        int nsqrt = (int) dsqrt;
+        if(distance == nsqrt*nsqrt)//거리가 제곱수인 경우
+            sb.append(2*nsqrt-1).append("\n");
+        else if (distance <= nsqrt*(nsqrt+1))//제곱수를 기준보다 크면서 그 다음 제곱수까지 제곱근 값만큼 수가 반복되므로
+            sb.append(2*nsqrt).append("\n");
+        else //
+            sb.append(2*nsqrt+1).append("\n");
+    }
+    System.out.println(sb);
 	}
-}*/
+}
+
