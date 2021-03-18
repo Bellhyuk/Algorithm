@@ -27,7 +27,7 @@ class Solution {
     }
 /*
  * <다른 사람 풀이>
- * 
+ *  brown의 가로길이를 먼저 정하고 두번째 조건과 같을 때까지 반복문을 돌려주는 방식 사용
  */
   public int[] solution(int brown, int yellow) {
       int[] answer = {};
