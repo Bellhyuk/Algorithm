@@ -1,7 +1,10 @@
-package inflearn;
+package no_3;
+
+import java.util.Scanner;
 
 public class no_3{
-  //단어 뒤집기
+  //문장 속 단어
+  //한 개의 문장이 주어지면 그 문장 속에서 가장 긴 단어를 출력하는 프로그램을 작성하세요
   public String solution(String str) {
     String answer="";
     int max=Integer.MIN_VALUE, pos;
@@ -41,5 +44,10 @@ public class no_3{
     return arr[idx];*/
   }
   
-
+  public static void main(String[] args) {
+    no_3 T = new no_3();
+    Scanner sc = new Scanner(System.in);
+    String str = sc.nextLine();// 문자열
+    System.out.println(T.solution(str));
+  }
 }
