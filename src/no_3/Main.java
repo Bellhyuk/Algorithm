@@ -2,7 +2,7 @@ package no_3;
 
 import java.util.Scanner;
 
-public class no_3{
+public class Main{
   //문장 속 단어
   //한 개의 문장이 주어지면 그 문장 속에서 가장 긴 단어를 출력
   public String solution(String str) {
@@ -45,7 +45,7 @@ public class no_3{
   }
   
   public static void main(String[] args) {
-    no_3 T = new no_3();
+    Main T = new Main();
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();// 문자열
     System.out.println(T.solution(str));
