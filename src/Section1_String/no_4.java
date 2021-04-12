@@ -1,8 +1,8 @@
-package no_4;
+package Section1_String;
 
 import java.util.*;
 
-public class Main {
+public class no_4 {
   //단어 뒤집기
   /*public String solution(String str) {
     int len = str.length();
@@ -41,7 +41,7 @@ public class Main {
   
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_4 T = new no_4();
     Scanner sc = new Scanner(System.in);
     int run = sc.nextInt();
     String[] str=new String[run];

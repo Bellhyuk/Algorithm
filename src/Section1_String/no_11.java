@@ -1,4 +1,4 @@
-package no_11;
+package Section1_String;
 
 /*10.문자열 압축
 알파벳 대문자로 이루어진 문자열
@@ -9,7 +9,7 @@ package no_11;
 */
 import java.util.*;
 
-public class Main {
+public class no_11 {
   //풀이
   //한꺼번에 돌리는 것이 나중에 차례대로 보기에도 편하다.
   public String solution(String str) {
@@ -49,7 +49,7 @@ public class Main {
   }*/
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_11 T = new no_11();
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
     System.out.println(T.solution(str));

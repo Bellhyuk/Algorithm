@@ -1,4 +1,4 @@
-package no_10;
+package Section1_String;
 
 /*10.가장 짧은 문자거리
 한 개의 문자열 s와 문자t가 주어지면 s의 각 문자가 문자 t와 떨어진 최소거리를 구하는 프로그램 작성
@@ -9,7 +9,7 @@ package no_10;
 import java.util.*;
 
 //어려움...
-public class Main {
+public class no_10 {
   //tg와 떨어진 가장 짧은 거리, 모든 tg 탐색
   public String solution(String str, String tg) {
     String ans="";
@@ -35,7 +35,7 @@ public class Main {
   }
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_10 T = new no_10();
     Scanner sc = new Scanner(System.in);
     String s = sc.next();
     String t = sc.next();

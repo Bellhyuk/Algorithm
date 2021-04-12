@@ -1,4 +1,4 @@
-package no_8;
+package Section1_String;
 
 /*8. 유효한 팰린드롬
 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열 - 팰린드롬
@@ -14,7 +14,7 @@ index를 고려하지 않아야 한다.
 */
 import java.util.*;
 
-public class Main {
+public class no_8 {
   //풀이1, 알파벳말고 싹다 없애버리기
   //replaceAll -> 어떻게? 정규식 이용ㅎ
   public String solution(String str) {
@@ -50,7 +50,7 @@ public class Main {
   }*/
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_8 T = new no_8();
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
     System.out.println(T.solution(str));

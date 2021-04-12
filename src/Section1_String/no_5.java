@@ -1,4 +1,4 @@
-package no_5;
+package Section1_String;
 
 /*5. 특정 문자 뒤집기
 영어 알파벳과 특수문자로 구성된 문자열
@@ -10,7 +10,7 @@ package no_5;
 */
 import java.util.*;
 
-public class Main { 
+public class no_5 { 
 /*  public String solution(String str){
     char[] s = str.toCharArray();
     int lt=0, rt=s.length-1;
@@ -47,7 +47,7 @@ public class Main {
   }
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_5 T = new no_5();
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
     System.out.println(T.solution(str));

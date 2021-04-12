@@ -1,4 +1,4 @@
-package no_6;
+package Section1_String;
 
 /*6. 중복문자 제거
 소문자로 된 한개의 문자열이 입력되면 중복된 문자를 제거하고 출력하는 프로그램을 작성
@@ -9,7 +9,7 @@ package no_6;
 */
 import java.util.*;
 
-public class Main {
+public class no_6 {
   //indexOf 사용, index 번호와 indexOf 값이 같으면 처음 발견된 것으로 볼 수 있다.
   public String solution(String str) {
     String answer="";
@@ -20,7 +20,7 @@ public class Main {
   }
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_6 T = new no_6();
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
     System.out.println(T.solution(str));

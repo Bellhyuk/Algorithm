@@ -1,4 +1,4 @@
-package no_7;
+package Section1_String;
 
 /*7. 회문 문자열
 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열 -> 회문 문자열
@@ -10,7 +10,7 @@ package no_7;
 */
 import java.util.*;
 
-public class Main {
+public class no_7 {
   //풀이2
   //equals() 대소문자 구분, equalsIgnoreCase() 대소문자 구분X
   public String solution(String str) {
@@ -78,7 +78,7 @@ public class Main {
   }*/
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_7 T = new no_7();
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
     System.out.println(T.solution(str));

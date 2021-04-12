@@ -1,4 +1,4 @@
-package no_12;
+package Section1_String;
 
 /*9. 숫자만 추출
 문자와 숫자가 섞여있는 문자열이 주어지면 그 중 숫자만 추출하여 그 순서대로 자연수로 만들자.
@@ -8,7 +8,7 @@ package no_12;
 */
 import java.util.*;
 
-public class Main {
+public class no_9 {
   //풀이2
   //isDigit && Integer.parseInt
   public int solution(String str) {
@@ -49,7 +49,7 @@ public class Main {
   }*/
   
   public static void main(String[] args) {
-    Main T = new Main();
+    no_9 T = new no_9();
     Scanner sc = new Scanner(System.in);
     String str = sc.nextLine();
     System.out.println(T.solution(str));
