@@ -1,58 +1,42 @@
 package Section2_Array;
 
-/*4. 피보나치 수열
-1) 피보나키 수열을 출력한다.
-피보나치 수열이란 앞의 2개의 수를 합하여 다음 숫자가 되는 수열이다.
-2) 입력은 피보나치 수열의 총 항의 수 이다.
-만약 7이 입력되면 1 1 2 3 5 8 13을 출력하면 된다
-입력
-첫 줄에 총 항수 N(3<=N<=45)이 입력된다.
-출력
-줄에 피보나치 수열을 출력합니다.
-그냥 앞에꺼 두 개 더해서 출력해주면 되는거자너..
+/*7. 점수계산
+ * 처음 맞는 문제는 1점
+ * 연속으로 맞는 경우, 연속 횟수에 비례하여 점수 2번연속-2점, 3번연속-3점
+ * 틀린 문제는 0점
+ * 총 점수를 계산하는 프로그램을 작성
+ * 
+ * 입력
+ * 첫째 줄에 문제의 개수 N (1 ≤ N ≤ 100)이 주어진다.
+ * 둘째 줄에는 N개 문제의 채점 결과를 나타내는 0 혹은 1이 빈 칸을 사이에 두고 주어진다
+ * 출력
+ * 첫째 줄에 입력에서 주어진 채점 결과에 대하여 가산점을 고려한 총 점수를 출력한다
+ * 
+ *의사코드
+ *그냥 전역변수, 지역변수 따로 두고 계산하면 될듯
 */
 import java.util.*;
 
 public class no_7 {
-  //배열을 쓰지않고 푸는 경우
-  public void solution(int n) {
-    int a=1, b=1, c;
-    System.out.println(a+" "+b+" ");
-    for(int i=2; i<n; i++) {
-      c=a+b;
-      System.out.println(c+" ");
-      a=b;
-      b=c;
+  public int solution(int loop, int[] arr) {
+    int sum=0;
+    int cnt=0;
+    for(int i=0; i<loop; i++) {
+      if(arr[i]==1) cnt++;
+      else cnt=0;
+      sum += cnt;
     }
+    return sum;
   }
   
   public static void main(String[] args) {
     no_7 T = new no_7();
     Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    T.solution(n);
-  }
-  //내 풀이
-  /*public List<Integer> solution(int n){
-    List<Integer> answer = new ArrayList<>();
-    int[] arr = new int[n];
-    arr[0]=1; arr[1]=1;
-    for(int i=0; i<n; i++) {
-      if(i<2) answer.add(arr[i]);
-      else {
-        arr[i] = arr[i-1] + arr[i-2];
-        answer.add(arr[i]);
-      }
+    int loop = sc.nextInt();
+    int[] arr = new int[loop];
+    for(int i=0; i<loop; i++) {
+      arr[i]=sc.nextInt();
     }
-    return answer;
+    System.out.println(T.solution(loop, arr));
   }
-  
-  public static void main(String[] args) {
-    no_4 T = new no_4();
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    for(int s:T.solution(n)) {
-      System.out.print(s+" ");
-    }
-  }*/
 }
